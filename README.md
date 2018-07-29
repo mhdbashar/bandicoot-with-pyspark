@@ -1,2 +1,2 @@
-# bandicoot-with-pyspark
-Full pipeline to export users indicators using pyspark (read and write form hdfs)
+# Integrate bandicoot with pyspark
+trying to achieve clean **Full pipeline** using pyspark
