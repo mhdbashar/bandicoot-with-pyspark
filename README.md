@@ -1,2 +1,3 @@
 # Integrate bandicoot with pyspark
-trying to achieve clean **Full pipeline** using pyspark (read user records from hdfs)
+trying to achieve clean **Full pipeline** using pyspark 
+**read users' records from hdfs and wirte the exported indicators to hdfs too**
