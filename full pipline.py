@@ -1,4 +1,5 @@
-Create SparkSession
+**Create SparkSession**
+
 %pyspark
 from pyspark.sql import SparkSession
 
@@ -6,7 +7,8 @@ sparkSession = SparkSession.builder.appName("example-pyspark-read-and-write").ge
 
 ===========================================================
 
-Prepare data
+**Prepare data**
+
 %pyspark
 from pyspark.sql.functions import col
 
@@ -25,7 +27,8 @@ end.show()
 
 =============================================================
 
-Collect records and antennas for every GSM
+**Collect records and antennas for every GSM**
+
 %pyspark
 from pyspark.sql import functions as F
 
@@ -34,7 +37,7 @@ data_frame.show()
 
 ==============================================================
 
-fun: Extract features from Bandicoot user
+**fun: Extract features from Bandicoot user**
 
 %pyspark
 import bandicoot as bc
@@ -64,7 +67,7 @@ def loaduser(user, recordslist, antennaslist):
     
  ==============================================================
  
- Main processing for all GSM
+ **Main processing for all GSM**
  
  %pyspark
 
@@ -72,7 +75,7 @@ def loaduser(user, recordslist, antennaslist):
 
 ==============================================================
 
-fun: Write users' features
+**fun: Write users' features**
 
 %pyspark
 
@@ -113,7 +116,7 @@ def to_csv(objects, filename, digits=5, warnings=True):
               
 ==============================================================
 
-Write final result
+**Write final result**
 
 %pyspark
 to_csv(df_q,"/Mhdbashar/bandicootv527x")
