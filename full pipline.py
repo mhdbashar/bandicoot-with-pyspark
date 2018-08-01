@@ -16,12 +16,10 @@ from pyspark.sql.functions import col
 df_load = sparkSession.read.parquet('/endSyr527')
 
 # load antennas
-mstr_profile = sparkSession.read.parquet("/mstr/antenna_.parquet") 
-# filter anntenna
-filtered = mstr_profile.filter((col("since") <= "2018-04-01 00:00:00") & (col("to") >= "2018-03-01 00:00:00")).distinct()
+antennas = sparkSession.read.parquet("/mstr/antenna_.parquet") 
 
 # prepare records with antennas
-end = df_load.join(filtered, col("antenna_id")  == col("SITE_CODE")).select(col("interaction"), col("direction"), col("correspondent_id"), col("datetime"), col("call_duration"), col("GSM"), col("antenna_id"), col("LATITUDE").alias("latitude"),col("LONGITUDE").alias("longitude")).distinct()
+end = df_load.join(antennas, col("antennas.antenna_id")  == col("df_load.antenna_id")).select(col("interaction"), col("direction"), col("correspondent_id"), col("datetime"), col("call_duration"), col("GSM"), col("antenna_id"), col("LATITUDE").alias("latitude"),col("LONGITUDE").alias("longitude")).distinct()
 
 end.show()
 
